@@ -1,0 +1,56 @@
+domain furb
+
+service basico { 
+	
+	endpoints {
+		query retornaFilmesByDiretor {
+            in {
+                diretor : string
+            }
+            out {
+                filmesMessage : filme*
+            }
+        }
+	}
+    entities {
+    	
+		"Genero"
+		fixed entity genero {
+		    "Chave primaria"
+		    id: uuid?
+		    "nome"
+		    nome: string
+		} 
+		
+	    "Entidade que representa o diretor" 
+		fixed entity diretor {
+		    "Chave primaria"
+		    id: uuid?
+		    "Nome do diretor"
+		    nome: string
+		}
+		
+		"Entidade que representa o ator" 
+		fixed entity ator {
+		    "Chave primaria"
+		    id: uuid?
+		    "Nome do diretor"
+		    nome: string
+		}
+		
+		"Entidade que representa um filme"
+		fixed entity filme {
+		    "Chave primária"
+		    id: uuid?
+		    "nome"
+		    nome: string 
+		    "diretor"
+		    diretor: diretor
+		    "genero"
+		    generos: genero*
+		    "atores"
+		    atores: ator*
+		}
+	
+    }
+}

@@ -1,0 +1,29 @@
+domain furb
+
+entities {
+	generateExtraResources : true
+    securityType : secure
+	enumType : ordinal
+}
+
+service basico {
+	entities{
+        entity filme{
+            relationships{
+            	OneToMany(atores){
+                    type: aggregation
+                    fetchType: eager
+                }
+                OneToMany(generos){
+                    type: aggregation
+                    fetchType: eager
+                }
+                ManyToOne(diretor){
+                    type: aggregation
+                    fetchType: eager
+                }
+                
+            }
+        }
+    }
+}
