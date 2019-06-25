@@ -10,7 +10,7 @@ export class SideNavComponent implements OnInit {
   items = [
     {
       label: 'Filme',
-      routerLink: '/clientes'
+      routerLink: '/filmes'
     },
     {
       label: 'Items',

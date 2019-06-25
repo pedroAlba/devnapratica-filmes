@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FilmeRouterModule } from './ator.routing';
+import { AtorRouterModule } from './ator.routing';
 import { TableModule } from 'primeng/table';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
@@ -20,7 +20,7 @@ import { AtorResolver } from './views/ator-form/ator.resolver';
   declarations: [AtorFormComponent, AtorListComponent],
   imports: [
     CommonModule,
-    FilmeRouterModule,
+    AtorRouterModule,
     CardModule,
     ButtonModule,
     TableModule,
