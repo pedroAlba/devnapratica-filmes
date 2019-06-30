@@ -77,6 +77,40 @@ public interface BasicoConstants {
     	 */
     	String ATUALIZA_STATUS_ATOR_ERROR = "atualizaStatusAtorError";
     	/**
+    	 * @see DiretorEhExperienteInput the request payload
+    	 */
+    	String DIRETOR_EH_EXPERIENTE = "diretorEhExperiente";
+    	/**
+    	 * The success response primitive for diretorEhExperiente.
+    	 *
+    	 * @see #DIRETOR_EH_EXPERIENTE the request primitive
+    	 * @see DiretorEhExperienteOutput the response payload
+    	 */
+    	String DIRETOR_EH_EXPERIENTE_RESPONSE = "diretorEhExperienteResponse";
+    	/**
+    	 * An error response primitive for diretorEhExperiente.
+    	 *
+    	 * @see #DIRETOR_EH_EXPERIENTE the request primitive
+    	 */
+    	String DIRETOR_EH_EXPERIENTE_ERROR = "diretorEhExperienteError";
+    	/**
+    	 * @see GeneroEhFamosoInput the request payload
+    	 */
+    	String GENERO_EH_FAMOSO = "generoEhFamoso";
+    	/**
+    	 * The success response primitive for generoEhFamoso.
+    	 *
+    	 * @see #GENERO_EH_FAMOSO the request primitive
+    	 * @see GeneroEhFamosoOutput the response payload
+    	 */
+    	String GENERO_EH_FAMOSO_RESPONSE = "generoEhFamosoResponse";
+    	/**
+    	 * An error response primitive for generoEhFamoso.
+    	 *
+    	 * @see #GENERO_EH_FAMOSO the request primitive
+    	 */
+    	String GENERO_EH_FAMOSO_ERROR = "generoEhFamosoError";
+    	/**
     	 * @see AdicionaAtorAoFilmeInput the request payload
     	 */
     	String ADICIONA_ATOR_AO_FILME = "adicionaAtorAoFilme";

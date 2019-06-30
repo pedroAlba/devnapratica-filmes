@@ -928,6 +928,52 @@ paths:
               schema:
                 $ref: '#/components/schemas/genericError'
   
+  /rest/furb/basico/actions/generoEhFamoso:
+    post:
+      description: ""
+      tags:
+        - Actions
+      x-senior-visibility: PRIVATE
+      security :
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - genero
+              properties:
+                genero:
+                  type: string
+                  description: "Nome do genero"
+      parameters:
+        - in: header
+          name: Accept
+          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
+          schema:
+            type: string
+      responses:
+        200:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - ehFamoso
+                properties:
+                  ehFamoso:
+                    type: boolean
+                    description: ""
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+  
   /rest/furb/basico/actions/adicionaAtorAoFilme:
     post:
       description: ""
@@ -973,6 +1019,52 @@ paths:
                     allOf:
                       - $ref: '#/components/schemas/filme'
                     description: "filme cadastrado"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+  
+  /rest/furb/basico/actions/diretorEhExperiente:
+    post:
+      description: ""
+      tags:
+        - Actions
+      x-senior-visibility: PRIVATE
+      security :
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - diretor
+              properties:
+                diretor:
+                  type: string
+                  description: "Nome do diretor"
+      parameters:
+        - in: header
+          name: Accept
+          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
+          schema:
+            type: string
+      responses:
+        200:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - ehExperiente
+                properties:
+                  ehExperiente:
+                    type: boolean
+                    description: ""
         default:
           description: Error response
           content:

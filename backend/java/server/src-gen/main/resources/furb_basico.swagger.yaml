@@ -526,6 +526,74 @@ paths:
           schema:
             $ref: '#/definitions/genericError'
   
+  /basico/actions/diretorEhExperiente:
+    post:
+      description: ""
+      tags:
+        - Actions
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            type: object
+            required:
+              - diretor
+            properties:
+              diretor:
+                type: string
+                description: "Nome do diretor"
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            required:
+              - ehExperiente
+            properties:
+              ehExperiente:
+                type: boolean
+                description: ""
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  
+  /basico/actions/generoEhFamoso:
+    post:
+      description: ""
+      tags:
+        - Actions
+      x-senior-visibility: PRIVATE
+      parameters:
+        - name: input
+          in: body
+          required: true
+          schema:
+            type: object
+            required:
+              - genero
+            properties:
+              genero:
+                type: string
+                description: "Nome do genero"
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: object
+            required:
+              - ehFamoso
+            properties:
+              ehFamoso:
+                type: boolean
+                description: ""
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/genericError'
+  
   /basico/actions/adicionaAtorAoFilme:
     post:
       description: ""

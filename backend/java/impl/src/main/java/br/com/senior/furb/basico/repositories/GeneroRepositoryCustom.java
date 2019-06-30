@@ -10,4 +10,6 @@ public interface GeneroRepositoryCustom  {
 	List<Filme> findFilmesByGenero(String genero);
 
 	Filme setGeneroFilme(String genero, String filme);
+
+	Boolean generoEhFamoso(String genero);
 }

@@ -32,6 +32,22 @@
                 <slot name="ehRico" type="boolean" optional="false" multivalued="false"/>
             </output>
         </action>
+        <action name="diretorEhExperiente" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="diretor" type="string" optional="false" multivalued="false"/>
+            </input>
+            <output>
+                <slot name="ehExperiente" type="boolean" optional="false" multivalued="false"/>
+            </output>
+        </action>
+        <action name="generoEhFamoso" idempotent="false" extensionPoint="false" visibility="PRIVATE">
+            <input>
+                <slot name="genero" type="string" optional="false" multivalued="false"/>
+            </input>
+            <output>
+                <slot name="ehFamoso" type="boolean" optional="false" multivalued="false"/>
+            </output>
+        </action>
         <action name="adicionaAtorAoFilme" idempotent="false" extensionPoint="false" visibility="PRIVATE">
             <input>
                 <slot name="filme" type="string" optional="false" multivalued="false"/>

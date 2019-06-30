@@ -1,7 +1,7 @@
-/* Database: PostgreSql. Generation date: 2019-06-30 10:58:57:824 */
+/* Database: SqlServer. Generation date: 2019-06-30 18:38:09:484 */
 /* Entity Genero */
 create table genero (
-	id UUID NOT NULL,
+	id UNIQUEIDENTIFIER NOT NULL,
 	nome VARCHAR(255) NOT NULL
 );
 
@@ -9,7 +9,7 @@ create table genero (
 
 /* Entity Diretor */
 create table diretor (
-	id UUID NOT NULL,
+	id UNIQUEIDENTIFIER NOT NULL,
 	nome VARCHAR(255) NOT NULL
 );
 
@@ -17,19 +17,19 @@ create table diretor (
 
 /* Entity Ator */
 create table ator (
-	id UUID NOT NULL,
+	id UNIQUEIDENTIFIER NOT NULL,
 	nome VARCHAR(255) NOT NULL,
-	eh_rico BOOLEAN /* ehRico */
+	eh_rico BIT /* ehRico */
 );
 
 
 
 /* Entity Filme */
 create table filme (
-	id UUID NOT NULL,
+	id UNIQUEIDENTIFIER NOT NULL,
 	nome VARCHAR(255) NOT NULL,
-	diretor UUID NOT NULL,
-	genero UUID NOT NULL
+	diretor UNIQUEIDENTIFIER NOT NULL,
+	genero UNIQUEIDENTIFIER NOT NULL
 );
 
 
@@ -37,8 +37,8 @@ create table filme (
 /* Join Tables */
 /* master: Filme as filme, detail: Ator as ator */
 create table filme_atores (
-	filme_id UUID NOT NULL,
-	atores_id UUID NOT NULL
+	filme_id UNIQUEIDENTIFIER NOT NULL,
+	atores_id UNIQUEIDENTIFIER NOT NULL
 );
 
 /* Primary Key Constraints */
@@ -49,10 +49,10 @@ alter table filme_atores add constraint pk_filme_atores primary key(filme_id, at
 alter table filme add constraint pk_filme_id primary key(id);
 
 /* Foreign Key Constraints */
-alter table filme add constraint fklhtsbb78ohmxwpjxana0fqy8gjwc foreign key (diretor) references diretor (id);
-alter table filme add constraint fk5ulowww7lujsloi9bjhvgqfqlbfm foreign key (genero) references genero (id);
-alter table filme_atores add constraint fk54t4ezjmpiihgyrlht4jqxzr3uad foreign key (filme_id) references filme (id);
-alter table filme_atores add constraint fkpwtk7a2ny2bfijcf5bxb0ba4sy1e foreign key (atores_id) references ator (id);
+alter table filme add constraint fkciij5viazxz3p88yqnyfmgyoobha foreign key (diretor) references diretor (id);
+alter table filme add constraint fkjl8kqa7z7v4gmys1o74pk8jma5ot foreign key (genero) references genero (id);
+alter table filme_atores add constraint fkor6bxmhv7pxrvwbzn5qssimtxm73 foreign key (filme_id) references filme (id);
+alter table filme_atores add constraint fkhxgfmx8bw4gvysfuhzrn2xjz59sj foreign key (atores_id) references ator (id);
 
 /* Unique Key Constraints */
 

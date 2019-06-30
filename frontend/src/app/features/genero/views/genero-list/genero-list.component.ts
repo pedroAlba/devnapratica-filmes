@@ -50,7 +50,7 @@ export class GeneroListComponent implements OnInit {
 
     return gridcloumns;
   }
-
+  //algo parecido com isso, ai tem que criar o metodo da actio la no repository
   public showFilmes(item: Diretor) {
     this.selected = item;
     this.generoService.retornaFilmesByGenero(item.nome).subscribe(({ filmes }) => {

@@ -50,4 +50,13 @@ public class GeneroRepositoryCustomImpl extends RepositoryBaseJpa implements Gen
 		
 		return converter.toDTO(filmeRepository.save(filmeFound), Filme.class);
 	}
+
+	@Override
+	public Boolean generoEhFamoso(String genero) {
+		QFilmeEntity qFilme = QFilmeEntity.filmeEntity;
+		long filmesQueDirige = select(qFilme).from(qFilme)
+												 .where(qFilme.genero.nome.eq(genero))
+												 .fetchCount();
+		return filmesQueDirige > 5;
+	}
 }

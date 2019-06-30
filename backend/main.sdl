@@ -35,6 +35,24 @@ service basico {
                 ehRico : boolean
             }
         }
+         action diretorEhExperiente {
+            in {
+                "Nome do diretor"
+                diretor: string
+            }
+            out {
+                ehExperiente : boolean
+            }
+        }
+                 action generoEhFamoso {
+            in {
+                "Nome do genero"
+                genero: string
+            }
+            out {
+                ehFamoso : boolean
+            }
+        }
         action adicionaAtorAoFilme {
             in {
                 "Nome do filme"

@@ -13,6 +13,10 @@ import br.com.senior.furb.basico.RetornaFilmesByAtorInput;
 import br.com.senior.furb.basico.RetornaFilmesByAtorOutput;
 import br.com.senior.furb.basico.AtualizaStatusAtorInput;
 import br.com.senior.furb.basico.AtualizaStatusAtorOutput;
+import br.com.senior.furb.basico.DiretorEhExperienteInput;
+import br.com.senior.furb.basico.DiretorEhExperienteOutput;
+import br.com.senior.furb.basico.GeneroEhFamosoInput;
+import br.com.senior.furb.basico.GeneroEhFamosoOutput;
 import br.com.senior.furb.basico.AdicionaAtorAoFilmeInput;
 import br.com.senior.furb.basico.AdicionaAtorAoFilmeOutput;
 import br.com.senior.furb.basico.TrocaDiretorFilmeInput;
@@ -147,6 +151,48 @@ public interface BasicoStub {
 	 * Chamada assíncrona utilizando request
 	 */
 	CompletableFuture<AtualizaStatusAtorOutput> atualizaStatusAtorRequest(AtualizaStatusAtorInput input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	DiretorEhExperienteOutput diretorEhExperiente(DiretorEhExperienteInput input, long timeout);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona
+	 */
+	void diretorEhExperiente(DiretorEhExperienteInput input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<DiretorEhExperienteOutput> diretorEhExperienteRequest(DiretorEhExperienteInput input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada síncrona, o valor de timeout deve ser informado em ms 
+	 */
+	GeneroEhFamosoOutput generoEhFamoso(GeneroEhFamosoInput input, long timeout);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona
+	 */
+	void generoEhFamoso(GeneroEhFamosoInput input);
+	
+	/**
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * Chamada assíncrona utilizando request
+	 */
+	CompletableFuture<GeneroEhFamosoOutput> generoEhFamosoRequest(GeneroEhFamosoInput input);
 	
 	/**
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice

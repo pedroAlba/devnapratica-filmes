@@ -4,15 +4,6 @@
     "name": "basico",
     "version": "${version}",
     "commands" : {
-        "createMergeFilme": {
-            "endpointType" : "command",
-            "kind": "createMerge",
-            "documentation": "The 'createMerge' request primitive for the Filme entity.",
-            "input" : "filme",
-            "output" : "filme",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
         "deleteAtor": {
             "endpointType" : "command",
             "kind": "delete",
@@ -35,6 +26,475 @@
             "documentation": "The 'createMerge' request primitive for the Genero entity.",
             "input" : "genero",
             "output" : "genero",
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "createMergeAtor": {
+            "endpointType" : "command",
+            "kind": "createMerge",
+            "documentation": "The 'createMerge' request primitive for the Ator entity.",
+            "input" : "ator",
+            "output" : "ator",
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "createGenero": {
+            "endpointType" : "command",
+            "kind": "create",
+            "documentation": "The 'create' request primitive for the Genero entity.",
+            "input" : "genero",
+            "output" : "genero",
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "importFilme": {
+            "endpointType" : "command",
+            "kind": "action",
+            "input" : {
+                "config" : {
+                    "type": "importConfig",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "importJobId" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "atualizaStatusAtor": {
+            "endpointType" : "command",
+            "kind": "action",
+            "input" : {
+                "ator" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "ehRico" : {
+                    "type": "boolean",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "visibility" : "PRIVATE"
+        },
+        "retrieveGenero": {
+            "endpointType" : "command",
+            "kind": "retrieve",
+            "documentation": "The 'retrieve' request primitive for the Genero entity.",
+            "input" : {
+                "id" : {
+                    "type": "string",
+                    "format": "uuid",
+                    "optional": false,
+                    "multivalued": false,
+                	"readOnly": true
+                }
+            },
+            "output" : "genero",
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "importGenero": {
+            "endpointType" : "command",
+            "kind": "action",
+            "input" : {
+                "config" : {
+                    "type": "importConfig",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "importJobId" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "createBulkAtor": {
+            "endpointType" : "command",
+            "kind": "createBulk",
+            "documentation": "The 'createBulk' request primitive for the Ator entity.",
+            "input" : {
+                "entities" : {
+                    "type": "ator",
+                    "optional": false,
+                    "multivalued": true,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+            },
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "updateGenero": {
+            "endpointType" : "command",
+            "kind": "update",
+            "documentation": "The 'update' request primitive for the Genero entity.",
+            "input" : "genero",
+            "output" : "genero",
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "retrieveDiretor": {
+            "endpointType" : "command",
+            "kind": "retrieve",
+            "documentation": "The 'retrieve' request primitive for the Diretor entity.",
+            "input" : {
+                "id" : {
+                    "type": "string",
+                    "format": "uuid",
+                    "optional": false,
+                    "multivalued": false,
+                	"readOnly": true
+                }
+            },
+            "output" : "diretor",
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "listGenero": {
+            "endpointType" : "command",
+            "kind": "list",
+            "documentation": "The 'list' request primitive for the Genero entity.",
+            "input" : {
+                "offset" : {
+                    "type": "integer",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                },
+                "size" : {
+                    "type": "integer",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                },
+                "orderBy" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                },
+                "filter" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                },
+                "displayFields" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": true,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "contents" : {
+                    "type": "genero",
+                    "optional": false,
+                    "multivalued": true,
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "exportDiretor": {
+            "endpointType" : "command",
+            "kind": "query",
+            "idempotent": true,
+            "input" : {
+                "config" : {
+                    "type": "exportConfig",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "exportJobId" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "getMetadata": {
+            "endpointType" : "command",
+            "kind": "query",
+            "documentation": "Default 'getMetadata' query. Every service must handle this command and return metadata in the format requested.",
+            "idempotent": true,
+            "input" : {
+                "metadataFormat" : {
+                    "type": "string",
+                    "optional": true,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "metadata" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "visibility" : "PRIVATE"
+        },
+        "updateMergeDiretor": {
+            "endpointType" : "command",
+            "kind": "updateMerge",
+            "documentation": "The 'updateMerge' request primitive for the Diretor entity.",
+            "input" : "diretor",
+            "output" : "diretor",
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "updateMergeAtor": {
+            "endpointType" : "command",
+            "kind": "updateMerge",
+            "documentation": "The 'updateMerge' request primitive for the Ator entity.",
+            "input" : "ator",
+            "output" : "ator",
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "trocaDiretorFilme": {
+            "endpointType" : "command",
+            "kind": "action",
+            "input" : {
+                "filme" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                },
+                "diretor" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "filme" : {
+                    "type": "filme",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "visibility" : "PRIVATE"
+        },
+        "updateDiretor": {
+            "endpointType" : "command",
+            "kind": "update",
+            "documentation": "The 'update' request primitive for the Diretor entity.",
+            "input" : "diretor",
+            "output" : "diretor",
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "exportFilme": {
+            "endpointType" : "command",
+            "kind": "query",
+            "idempotent": true,
+            "input" : {
+                "config" : {
+                    "type": "exportConfig",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "exportJobId" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "retrieveFilme": {
+            "endpointType" : "command",
+            "kind": "retrieve",
+            "documentation": "The 'retrieve' request primitive for the Filme entity.",
+            "input" : {
+                "id" : {
+                    "type": "string",
+                    "format": "uuid",
+                    "optional": false,
+                    "multivalued": false,
+                	"readOnly": true
+                }
+            },
+            "output" : "filme",
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "retornaFilmesByDiretor": {
+            "endpointType" : "command",
+            "kind": "query",
+            "idempotent": true,
+            "input" : {
+                "diretor" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "filmes" : {
+                    "type": "filme",
+                    "optional": false,
+                    "multivalued": true,
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "visibility" : "PRIVATE"
+        },
+        "createBulkGenero": {
+            "endpointType" : "command",
+            "kind": "createBulk",
+            "documentation": "The 'createBulk' request primitive for the Genero entity.",
+            "input" : {
+                "entities" : {
+                    "type": "genero",
+                    "optional": false,
+                    "multivalued": true,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+            },
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "listAtor": {
+            "endpointType" : "command",
+            "kind": "list",
+            "documentation": "The 'list' request primitive for the Ator entity.",
+            "input" : {
+                "offset" : {
+                    "type": "integer",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                },
+                "size" : {
+                    "type": "integer",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                },
+                "orderBy" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                },
+                "filter" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                },
+                "displayFields" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": true,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "contents" : {
+                    "type": "ator",
+                    "optional": false,
+                    "multivalued": true,
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "createDiretor": {
+            "endpointType" : "command",
+            "kind": "create",
+            "documentation": "The 'create' request primitive for the Diretor entity.",
+            "input" : "diretor",
+            "output" : "diretor",
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "updateMergeFilme": {
+            "endpointType" : "command",
+            "kind": "updateMerge",
+            "documentation": "The 'updateMerge' request primitive for the Filme entity.",
+            "input" : "filme",
+            "output" : "filme",
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "importAtor": {
+            "endpointType" : "command",
+            "kind": "action",
+            "input" : {
+                "config" : {
+                    "type": "importConfig",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "importJobId" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "createMergeFilme": {
+            "endpointType" : "command",
+            "kind": "createMerge",
+            "documentation": "The 'createMerge' request primitive for the Filme entity.",
+            "input" : "filme",
+            "output" : "filme",
             "extensionPoint" : false,
             "visibility" : "PUBLIC"
         },
@@ -194,15 +654,6 @@
             "extensionPoint" : false,
             "visibility" : "PRIVATE"
         },
-        "createMergeAtor": {
-            "endpointType" : "command",
-            "kind": "createMerge",
-            "documentation": "The 'createMerge' request primitive for the Ator entity.",
-            "input" : "ator",
-            "output" : "ator",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
         "createBulkDiretor": {
             "endpointType" : "command",
             "kind": "createBulk",
@@ -229,59 +680,6 @@
             "extensionPoint" : false,
             "visibility" : "PUBLIC"
         },
-        "createGenero": {
-            "endpointType" : "command",
-            "kind": "create",
-            "documentation": "The 'create' request primitive for the Genero entity.",
-            "input" : "genero",
-            "output" : "genero",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "importFilme": {
-            "endpointType" : "command",
-            "kind": "action",
-            "input" : {
-                "config" : {
-                    "type": "importConfig",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-                "importJobId" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "atualizaStatusAtor": {
-            "endpointType" : "command",
-            "kind": "action",
-            "input" : {
-                "ator" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-                "ehRico" : {
-                    "type": "boolean",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PRIVATE"
-        },
         "createBulkFilme": {
             "endpointType" : "command",
             "kind": "createBulk",
@@ -289,62 +687,6 @@
             "input" : {
                 "entities" : {
                     "type": "filme",
-                    "optional": false,
-                    "multivalued": true,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "retrieveGenero": {
-            "endpointType" : "command",
-            "kind": "retrieve",
-            "documentation": "The 'retrieve' request primitive for the Genero entity.",
-            "input" : {
-                "id" : {
-                    "type": "string",
-                    "format": "uuid",
-                    "optional": false,
-                    "multivalued": false,
-                	"readOnly": true
-                }
-            },
-            "output" : "genero",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "importGenero": {
-            "endpointType" : "command",
-            "kind": "action",
-            "input" : {
-                "config" : {
-                    "type": "importConfig",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-                "importJobId" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "createBulkAtor": {
-            "endpointType" : "command",
-            "kind": "createBulk",
-            "documentation": "The 'createBulk' request primitive for the Ator entity.",
-            "input" : {
-                "entities" : {
-                    "type": "ator",
                     "optional": false,
                     "multivalued": true,
                     "readOnly": false
@@ -364,15 +706,6 @@
             "extensionPoint" : false,
             "visibility" : "PUBLIC"
         },
-        "updateGenero": {
-            "endpointType" : "command",
-            "kind": "update",
-            "documentation": "The 'update' request primitive for the Genero entity.",
-            "input" : "genero",
-            "output" : "genero",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
         "retrieveAtor": {
             "endpointType" : "command",
             "kind": "retrieve",
@@ -387,126 +720,6 @@
                 }
             },
             "output" : "ator",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "retrieveDiretor": {
-            "endpointType" : "command",
-            "kind": "retrieve",
-            "documentation": "The 'retrieve' request primitive for the Diretor entity.",
-            "input" : {
-                "id" : {
-                    "type": "string",
-                    "format": "uuid",
-                    "optional": false,
-                    "multivalued": false,
-                	"readOnly": true
-                }
-            },
-            "output" : "diretor",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "listGenero": {
-            "endpointType" : "command",
-            "kind": "list",
-            "documentation": "The 'list' request primitive for the Genero entity.",
-            "input" : {
-                "offset" : {
-                    "type": "integer",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "size" : {
-                    "type": "integer",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "orderBy" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "filter" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "displayFields" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": true,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-                "contents" : {
-                    "type": "genero",
-                    "optional": false,
-                    "multivalued": true,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "exportDiretor": {
-            "endpointType" : "command",
-            "kind": "query",
-            "idempotent": true,
-            "input" : {
-                "config" : {
-                    "type": "exportConfig",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-                "exportJobId" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "getMetadata": {
-            "endpointType" : "command",
-            "kind": "query",
-            "documentation": "Default 'getMetadata' query. Every service must handle this command and return metadata in the format requested.",
-            "idempotent": true,
-            "input" : {
-                "metadataFormat" : {
-                    "type": "string",
-                    "optional": true,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-                "metadata" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PRIVATE"
-        },
-        "updateMergeDiretor": {
-            "endpointType" : "command",
-            "kind": "updateMerge",
-            "documentation": "The 'updateMerge' request primitive for the Diretor entity.",
-            "input" : "diretor",
-            "output" : "diretor",
             "extensionPoint" : false,
             "visibility" : "PUBLIC"
         },
@@ -532,15 +745,6 @@
                     "readOnly": false
                 }
             },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "updateMergeAtor": {
-            "endpointType" : "command",
-            "kind": "updateMerge",
-            "documentation": "The 'updateMerge' request primitive for the Ator entity.",
-            "input" : "ator",
-            "output" : "ator",
             "extensionPoint" : false,
             "visibility" : "PUBLIC"
         },
@@ -623,66 +827,6 @@
             "extensionPoint" : false,
             "visibility" : "PUBLIC"
         },
-        "trocaDiretorFilme": {
-            "endpointType" : "command",
-            "kind": "action",
-            "input" : {
-                "filme" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "diretor" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-                "filme" : {
-                    "type": "filme",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PRIVATE"
-        },
-        "updateDiretor": {
-            "endpointType" : "command",
-            "kind": "update",
-            "documentation": "The 'update' request primitive for the Diretor entity.",
-            "input" : "diretor",
-            "output" : "diretor",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "exportFilme": {
-            "endpointType" : "command",
-            "kind": "query",
-            "idempotent": true,
-            "input" : {
-                "config" : {
-                    "type": "exportConfig",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-                "exportJobId" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
         "updateFilme": {
             "endpointType" : "command",
             "kind": "update",
@@ -692,29 +836,11 @@
             "extensionPoint" : false,
             "visibility" : "PUBLIC"
         },
-        "retrieveFilme": {
+        "generoEhFamoso": {
             "endpointType" : "command",
-            "kind": "retrieve",
-            "documentation": "The 'retrieve' request primitive for the Filme entity.",
+            "kind": "action",
             "input" : {
-                "id" : {
-                    "type": "string",
-                    "format": "uuid",
-                    "optional": false,
-                    "multivalued": false,
-                	"readOnly": true
-                }
-            },
-            "output" : "filme",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "retornaFilmesByDiretor": {
-            "endpointType" : "command",
-            "kind": "query",
-            "idempotent": true,
-            "input" : {
-                "diretor" : {
+                "genero" : {
                     "type": "string",
                     "optional": false,
                     "multivalued": false,
@@ -722,97 +848,15 @@
                 }
             },
             "output" : {
-                "filmes" : {
-                    "type": "filme",
+                "ehFamoso" : {
+                    "type": "boolean",
                     "optional": false,
-                    "multivalued": true,
+                    "multivalued": false,
                     "readOnly": false
                 }
             },
             "extensionPoint" : false,
             "visibility" : "PRIVATE"
-        },
-        "createBulkGenero": {
-            "endpointType" : "command",
-            "kind": "createBulk",
-            "documentation": "The 'createBulk' request primitive for the Genero entity.",
-            "input" : {
-                "entities" : {
-                    "type": "genero",
-                    "optional": false,
-                    "multivalued": true,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "listAtor": {
-            "endpointType" : "command",
-            "kind": "list",
-            "documentation": "The 'list' request primitive for the Ator entity.",
-            "input" : {
-                "offset" : {
-                    "type": "integer",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "size" : {
-                    "type": "integer",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "orderBy" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "filter" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "displayFields" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": true,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-                "contents" : {
-                    "type": "ator",
-                    "optional": false,
-                    "multivalued": true,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "createDiretor": {
-            "endpointType" : "command",
-            "kind": "create",
-            "documentation": "The 'create' request primitive for the Diretor entity.",
-            "input" : "diretor",
-            "output" : "diretor",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "updateMergeFilme": {
-            "endpointType" : "command",
-            "kind": "updateMerge",
-            "documentation": "The 'updateMerge' request primitive for the Filme entity.",
-            "input" : "filme",
-            "output" : "filme",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
         },
         "adicionaAtorAoFilme": {
             "endpointType" : "command",
@@ -834,6 +878,28 @@
             "output" : {
                 "filme" : {
                     "type": "filme",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "visibility" : "PRIVATE"
+        },
+        "diretorEhExperiente": {
+            "endpointType" : "command",
+            "kind": "action",
+            "input" : {
+                "diretor" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "ehExperiente" : {
+                    "type": "boolean",
                     "optional": false,
                     "multivalued": false,
                     "readOnly": false
@@ -876,28 +942,6 @@
                     "optional": false,
                     "multivalued": false,
                 	"readOnly": true
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "importAtor": {
-            "endpointType" : "command",
-            "kind": "action",
-            "input" : {
-                "config" : {
-                    "type": "importConfig",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-                "importJobId" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
                 }
             },
             "extensionPoint" : false,

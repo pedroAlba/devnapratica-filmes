@@ -10,5 +10,7 @@ public interface DiretorRepositoryCustom  {
 	List<Filme> findFilmesByNomeDiretor(String nome);
 
 	Filme trocaDiretorFilme(String diretor, String filme);
+
+	Boolean diretorEhExperiente(String diretor);
 	
 }

@@ -19,6 +19,10 @@ import br.com.senior.furb.basico.RetornaFilmesByAtorInput;
 import br.com.senior.furb.basico.RetornaFilmesByAtorOutput;
 import br.com.senior.furb.basico.AtualizaStatusAtorInput;
 import br.com.senior.furb.basico.AtualizaStatusAtorOutput;
+import br.com.senior.furb.basico.DiretorEhExperienteInput;
+import br.com.senior.furb.basico.DiretorEhExperienteOutput;
+import br.com.senior.furb.basico.GeneroEhFamosoInput;
+import br.com.senior.furb.basico.GeneroEhFamosoOutput;
 import br.com.senior.furb.basico.AdicionaAtorAoFilmeInput;
 import br.com.senior.furb.basico.AdicionaAtorAoFilmeOutput;
 import br.com.senior.furb.basico.TrocaDiretorFilmeInput;
@@ -228,6 +232,72 @@ public class BasicoStubImpl  implements BasicoStub {
 	public CompletableFuture<AtualizaStatusAtorOutput> atualizaStatusAtorRequest(AtualizaStatusAtorInput input) {
 		br.com.senior.furb.basico.impl.AtualizaStatusAtorImpl impl = new br.com.senior.furb.basico.impl.AtualizaStatusAtorImpl(messengerSupplier, userId, messageSupplier);
 		return impl.atualizaStatusAtorRequest(input);
+	}
+	/**
+	 * Chamada síncrona para o método diretorEhExperiente
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public DiretorEhExperienteOutput diretorEhExperiente(DiretorEhExperienteInput input, long timeout) {
+		br.com.senior.furb.basico.impl.DiretorEhExperienteImpl impl = new br.com.senior.furb.basico.impl.DiretorEhExperienteImpl(messengerSupplier, userId, messageSupplier);
+		return impl.diretorEhExperiente(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método diretorEhExperiente
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public void diretorEhExperiente(DiretorEhExperienteInput input) {
+		br.com.senior.furb.basico.impl.DiretorEhExperienteImpl impl = new br.com.senior.furb.basico.impl.DiretorEhExperienteImpl(messengerSupplier, userId, messageSupplier);
+		impl.diretorEhExperiente(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método diretorEhExperiente
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public CompletableFuture<DiretorEhExperienteOutput> diretorEhExperienteRequest(DiretorEhExperienteInput input) {
+		br.com.senior.furb.basico.impl.DiretorEhExperienteImpl impl = new br.com.senior.furb.basico.impl.DiretorEhExperienteImpl(messengerSupplier, userId, messageSupplier);
+		return impl.diretorEhExperienteRequest(input);
+	}
+	/**
+	 * Chamada síncrona para o método generoEhFamoso
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
+	 */
+	@Override
+	public GeneroEhFamosoOutput generoEhFamoso(GeneroEhFamosoInput input, long timeout) {
+		br.com.senior.furb.basico.impl.GeneroEhFamosoImpl impl = new br.com.senior.furb.basico.impl.GeneroEhFamosoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.generoEhFamoso(input, timeout);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método generoEhFamoso
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public void generoEhFamoso(GeneroEhFamosoInput input) {
+		br.com.senior.furb.basico.impl.GeneroEhFamosoImpl impl = new br.com.senior.furb.basico.impl.GeneroEhFamosoImpl(messengerSupplier, userId, messageSupplier);
+		impl.generoEhFamoso(input);
+	}
+	
+	/**
+	 * Chamada assíncrona para o método generoEhFamoso
+	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
+	 * 
+	 */
+	@Override
+	public CompletableFuture<GeneroEhFamosoOutput> generoEhFamosoRequest(GeneroEhFamosoInput input) {
+		br.com.senior.furb.basico.impl.GeneroEhFamosoImpl impl = new br.com.senior.furb.basico.impl.GeneroEhFamosoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.generoEhFamosoRequest(input);
 	}
 	/**
 	 * Chamada síncrona para o método adicionaAtorAoFilme

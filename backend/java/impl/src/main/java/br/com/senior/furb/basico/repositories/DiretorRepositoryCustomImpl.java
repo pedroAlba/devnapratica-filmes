@@ -53,4 +53,16 @@ public class DiretorRepositoryCustomImpl extends RepositoryBaseJpa implements Di
 		
 		return converter.toDTO(filmeRepository.save(filmeFound), Filme.class);
 	}
+
+	@Override
+	public Boolean diretorEhExperiente(String diretor) {
+
+		QFilmeEntity qFilme = QFilmeEntity.filmeEntity;
+		long filmesQueDirige = select(qFilme).from(qFilme)
+												 .where(qFilme.diretor.nome.eq(diretor))
+												 .fetchCount();
+
+		
+		return filmesQueDirige > 5;
+	}
 }
