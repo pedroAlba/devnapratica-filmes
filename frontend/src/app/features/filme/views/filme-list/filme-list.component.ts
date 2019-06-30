@@ -7,27 +7,27 @@ import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 
 @Component({
-  selector: 'app-cliente-list',
-  templateUrl: './cliente-list.component.html',
-  styleUrls: ['./cliente-list.component.scss']
+  selector: 'app-filme-list',
+  templateUrl: './filme-list.component.html',
+  styleUrls: ['./filme-list.component.scss']
 })
-export class ClienteListComponent implements OnInit {
+export class FilmeListComponent implements OnInit {
 
-  clientes: Filme[];
+  filmes: Filme[];
   columns: any[];
 
   constructor(
-    private clienteService: FilmeService,
+    private filmeService: FilmeService,
     private messageService: MessageService,
     private router: Router,
     private route: ActivatedRoute
     ) { }
 
   ngOnInit() {
-    this.clienteService.list()
+    this.filmeService.list()
     .pipe(this.listErrorCatch())
     .subscribe(({ contents }) => {
-      this.clientes = contents;
+      this.filmes = contents;
     });
 
     this.columns = this.getGridColumns();
@@ -37,9 +37,7 @@ export class ClienteListComponent implements OnInit {
   private getGridColumns() {
     const gridcloumns = [
       { field: 'nome', header: 'Nome' },
-      { field: 'dataLancamento', header: 'Data de Nascimento' },
-      { field: 'creditoHabilitado', header: 'Credito Habilitado' },
-      { field: 'cpf', header: 'CPF' },
+      { field: 'dataLancamento', header: 'Data de Lançamento' },
     ];
 
     return gridcloumns;
@@ -59,22 +57,22 @@ export class ClienteListComponent implements OnInit {
     this.router.navigate(['/filme/create'], { relativeTo: this.route });
   }
 
-  public editItem(cliente: Filme) {
-    this.router.navigate([`/cliente/edit/${cliente.id}`], { relativeTo: this.route });
+  public editItem(filme: Filme) {
+    this.router.navigate([`/filme/edit/${filme.id}`], { relativeTo: this.route });
   }
 
   public onRemoveConfirm(item: any) {
     const { id, nome } = item.data;
 
-    this.clienteService.delete(id).subscribe(() => {
+    this.filmeService.delete(id).subscribe(() => {
       this.messageService.clear('removeConfirm');
-      this.clientes = this.clientes.filter(cliente => cliente.id !== id);
-      this.clientes.find((cliente: Filme) => cliente.id === id);
+      this.filmes = this.filmes.filter(filme => filme.id !== id);
+      this.filmes.find((filme: Filme) => filme.id === id);
       this.messageService.add({
         key: 'remove-toast',
         severity: 'success',
         summary: `Sucesso!`,
-        detail: `Cliente ${nome} deletado!`
+        detail: `Filme ${nome} deletado!`
       });
     });
   }

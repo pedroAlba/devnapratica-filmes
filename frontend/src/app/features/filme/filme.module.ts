@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FilmeFormComponent } from './views/filme-form/filme-form.component';
-import { ClienteListComponent } from './views/filme-list/cliente-list.component';
+import { FilmeListComponent } from './views/filme-list/filme-list.component';
 import { ClienteRouterModule } from './filme.routing';
 import { TableModule } from 'primeng/table';
 import { CardModule } from 'primeng/card';
@@ -17,7 +17,7 @@ import { ToastModule } from 'primeng/toast';
 import { FilmeResolver } from './views/filme-form/filme.resolver';
 
 @NgModule({
-  declarations: [FilmeFormComponent, ClienteListComponent],
+  declarations: [FilmeFormComponent, FilmeListComponent],
   imports: [
     CommonModule,
     ClienteRouterModule,

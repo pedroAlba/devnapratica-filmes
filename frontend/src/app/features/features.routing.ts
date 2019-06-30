@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [{
-  path: 'clientes', redirectTo: 'filme/list'
+  path: 'filmes', redirectTo: 'filme/list'
 },
   {
     path: 'atores', redirectTo: 'ator/list'
