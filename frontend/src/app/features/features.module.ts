@@ -4,8 +4,8 @@ import { FeaturesRouterModule } from './features.routing';
 import { FilmeModule } from './filme/filme.module';
 import { RouterModule } from '@angular/router';
 import { AtorModule } from './ator/ator.module';
-import { GeneroModule } from '../core/entities/genero/genero.module';
-import { DiretorModule } from '../core/entities/diretor/diretor.module';
+import { DiretorModule } from './diretor/diretor.module';
+import { GeneroModule } from './genero/genero.module';
 
 @NgModule({
   declarations: [],
@@ -14,8 +14,8 @@ import { DiretorModule } from '../core/entities/diretor/diretor.module';
     FeaturesRouterModule,
     FilmeModule,
     AtorModule,
+    DiretorModule,
     GeneroModule,
-    DiretorModule
   ],
   exports: [
     RouterModule

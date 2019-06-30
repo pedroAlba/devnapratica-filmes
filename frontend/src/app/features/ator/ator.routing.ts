@@ -5,7 +5,7 @@ import { AtorListComponent } from './views/ator-list/ator-list.component';
 import { AtorResolver } from './views/ator-form/ator.resolver';
 
 const routes: Routes = [{
-  path: 'ator.ts',  children: [
+  path: 'ator',  children: [
     {
       path: 'create', component: AtorFormComponent
     },

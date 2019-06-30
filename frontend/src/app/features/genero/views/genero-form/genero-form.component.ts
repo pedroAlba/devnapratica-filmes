@@ -6,21 +6,21 @@ import { catchError, takeUntil } from 'rxjs/operators';
 import { throwError, Subject } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { Ator } from 'src/app/core/entities/ator/ator';
-import { AtorService } from 'src/app/core/entities/ator/ator.service';
+import { Genero } from 'src/app/core/entities/genero/genero';
+import { GeneroService } from 'src/app/core/entities/genero/genero.service';
 
 @Component({
-  selector: 'app-cliente-form',
-  templateUrl: './ator-form.component.html',
+  selector: 'app-genero-form',
+  templateUrl: './genero-form.component.html',
 })
-export class AtorFormComponent implements OnInit {
+export class GeneroFormComponent implements OnInit {
   public atorForm: FormGroup;
-  @Input() item: Ator;
+  @Input() item: Genero;
   private routeParams: any;
   private ngUnsubscribe = new Subject();
 
   constructor(
-    private atorService: AtorService,
+    private atorService: GeneroService,
     private formBuilder: FormBuilder,
     private router: Router,
     private messageService: MessageService,
@@ -75,7 +75,7 @@ export class AtorFormComponent implements OnInit {
   }
 
   private goBack() {
-    const previousRoute = '/ator/list';
+    const previousRoute = '/genero/list';
     this.router.navigate([previousRoute], { relativeTo: this.route.parent });
   }
 
@@ -85,7 +85,7 @@ export class AtorFormComponent implements OnInit {
         const value: any = Filme.fromDto(entity);
         this.atorForm.patchValue(value);
     } else {
-        this.atorForm.patchValue(new Ator());
+        this.atorForm.patchValue(new Genero());
     }
   }
 
@@ -95,21 +95,21 @@ export class AtorFormComponent implements OnInit {
 
   private getSaveObservable() {
     const { value } = this.atorForm;
-    const atorDto = Filme.toDto(value);
+    const generoDto = Filme.toDto(value);
 
     let observable;
 
     if (this.isNew()) {
-        observable = this.atorService.insert(atorDto);
+        observable = this.atorService.insert(generoDto);
         this.messageService.add({
           key: 'form-toast',
           severity: 'success',
           summary: `Sucesso!`,
-          detail: `O ator foi inserido com sucesso!`
+          detail: `O genero foi inserido com sucesso!`
         });
     } else {
         const id = this.routeParams.id;
-        observable = this.atorService.update(id, atorDto);
+        observable = this.atorService.update(id, generoDto);
     }
 
     return observable;

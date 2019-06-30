@@ -8,5 +8,5 @@ export interface FilmeDto {
   dataLancamento?: Date;
   diretor: Diretor;
   atores: Ator[];
-  generos: Genero[];
+  genero: Genero;
 }

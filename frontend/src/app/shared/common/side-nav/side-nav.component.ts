@@ -13,8 +13,16 @@ export class SideNavComponent implements OnInit {
       routerLink: '/filmes'
     },
     {
-      label: 'Items',
-      routerLink: '/items'
+      label: 'Atores',
+      routerLink: '/atores'
+    },
+    {
+      label: 'Generos',
+      routerLink: '/generos'
+    },
+    {
+      label: 'Diretores',
+      routerLink: '/diretores'
     }
   ];
 

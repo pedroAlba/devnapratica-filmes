@@ -11,6 +11,7 @@ import {DiretorModule} from './entities/diretor/diretor.module';
     CommonModule,
     FilmeModule,
     AtorModule,
+    DiretorModule,
     GeneroModule,
     DiretorModule
   ]

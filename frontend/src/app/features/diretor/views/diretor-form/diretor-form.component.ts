@@ -8,19 +8,21 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { Ator } from 'src/app/core/entities/ator/ator';
 import { AtorService } from 'src/app/core/entities/ator/ator.service';
+import { DiretorService } from 'src/app/core/entities/diretor/diretor.service';
+import { Diretor } from 'src/app/core/entities/diretor/diretor';
 
 @Component({
-  selector: 'app-cliente-form',
-  templateUrl: './ator-form.component.html',
+  selector: 'app-diretor-form',
+  templateUrl: './diretor-form.component.html',
 })
-export class AtorFormComponent implements OnInit {
+export class DiretorFormComponent implements OnInit {
   public atorForm: FormGroup;
-  @Input() item: Ator;
+  @Input() item: Diretor;
   private routeParams: any;
   private ngUnsubscribe = new Subject();
 
   constructor(
-    private atorService: AtorService,
+    private atorService: DiretorService,
     private formBuilder: FormBuilder,
     private router: Router,
     private messageService: MessageService,
@@ -75,7 +77,7 @@ export class AtorFormComponent implements OnInit {
   }
 
   private goBack() {
-    const previousRoute = '/ator/list';
+    const previousRoute = '/diretor/list';
     this.router.navigate([previousRoute], { relativeTo: this.route.parent });
   }
 
@@ -85,7 +87,7 @@ export class AtorFormComponent implements OnInit {
         const value: any = Filme.fromDto(entity);
         this.atorForm.patchValue(value);
     } else {
-        this.atorForm.patchValue(new Ator());
+        this.atorForm.patchValue(new Diretor());
     }
   }
 
@@ -95,21 +97,21 @@ export class AtorFormComponent implements OnInit {
 
   private getSaveObservable() {
     const { value } = this.atorForm;
-    const atorDto = Filme.toDto(value);
+    const diretorDto = Filme.toDto(value);
 
     let observable;
 
     if (this.isNew()) {
-        observable = this.atorService.insert(atorDto);
+        observable = this.atorService.insert(diretorDto);
         this.messageService.add({
           key: 'form-toast',
           severity: 'success',
           summary: `Sucesso!`,
-          detail: `O ator foi inserido com sucesso!`
+          detail: `O diretor foi inserido com sucesso!`
         });
     } else {
         const id = this.routeParams.id;
-        observable = this.atorService.update(id, atorDto);
+        observable = this.atorService.update(id, diretorDto);
     }
 
     return observable;

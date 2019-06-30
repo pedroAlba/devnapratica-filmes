@@ -11,7 +11,7 @@ export class EntityService<T> {
   ) {
     this.http = http;
     this.entityUrl = entityUrl;
-    this.headers = new HttpHeaders().set('Authorization', 'Bearer 63b7c2003e0d44c5a5b5a815e559ef88');
+    this.headers = new HttpHeaders().set('Authorization', 'Bearer 1d9d5dd81db98f7db4981b57e1549c74');
   }
 
   public list() {
