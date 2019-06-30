@@ -36,6 +36,9 @@ public class AtorEntity {
 	@Column(name = "nome")
 	private String nome;
 	
+	@Column(name = "eh_rico")
+	private Boolean ehRico;
+	
 	public java.util.UUID getId() {
 		return id;
 	}
@@ -44,12 +47,20 @@ public class AtorEntity {
 		return nome;
 	}
 	
+	public Boolean getEhRico() {
+		return ehRico;
+	}
+	
 	public void setId(java.util.UUID id) {
 		this.id = id;
 	}
 	
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public void setEhRico(Boolean ehRico) {
+		this.ehRico = ehRico;
 	}
 	
 	@Override
@@ -94,7 +105,8 @@ public class AtorEntity {
 		}
 		appended.add(this);
 		sb.append("id=").append(id == null ? "null" : id).append(", ");
-		sb.append("nome=").append(nome == null ? "null" : nome);
+		sb.append("nome=").append(nome == null ? "null" : nome).append(", ");
+		sb.append("ehRico=").append(ehRico == null ? "null" : ehRico);
 		sb.append(']');
 	}
 	

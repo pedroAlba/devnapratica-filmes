@@ -9,7 +9,7 @@ import br.com.senior.furb.basico.*;
 
 public class RetornaFilmesByDiretorOutput {
     
-    public java.util.List<Filme> filmesMessage;
+    public java.util.List<Filme> filmes;
     
     public RetornaFilmesByDiretorOutput() {
     }
@@ -17,8 +17,8 @@ public class RetornaFilmesByDiretorOutput {
     /** 
      * This constructor allows initialization of all fields, required and optional.
      */
-    public RetornaFilmesByDiretorOutput(java.util.List<Filme> filmesMessage) {
-        this.filmesMessage = filmesMessage;
+    public RetornaFilmesByDiretorOutput(java.util.List<Filme> filmes) {
+        this.filmes = filmes;
     }
     
     public void validate() {
@@ -39,8 +39,8 @@ public class RetornaFilmesByDiretorOutput {
     @Override
     public int hashCode() {
         int ret = 1;
-        if (filmesMessage != null) {
-            ret = 31 * ret + filmesMessage.hashCode();
+        if (filmes != null) {
+            ret = 31 * ret + filmes.hashCode();
         }
         return ret;
     }
@@ -54,10 +54,10 @@ public class RetornaFilmesByDiretorOutput {
             return false;
         }
         RetornaFilmesByDiretorOutput other = (RetornaFilmesByDiretorOutput) obj;
-        if ((filmesMessage == null) != (other.filmesMessage == null)) {
+        if ((filmes == null) != (other.filmes == null)) {
             return false;
         }
-        if ((filmesMessage != null) && !filmesMessage.equals(other.filmesMessage)) {
+        if ((filmes != null) && !filmes.equals(other.filmes)) {
             return false;
         }
         return true;
@@ -77,14 +77,14 @@ public class RetornaFilmesByDiretorOutput {
     		return;
     	}
     	appended.add(this);
-    	sb.append("filmesMessage=<");
-    	if (filmesMessage == null) {
+    	sb.append("filmes=<");
+    	if (filmes == null) {
     		sb.append("null");
     	} else {
     		sb.append('[');
-    		int last = filmesMessage.size() - 1;
+    		int last = filmes.size() - 1;
     		for (int i = 0; i <= last; i++) {
-    			filmesMessage.get(i).toString(sb, appended);
+    			filmes.get(i).toString(sb, appended);
     			if (i < last) {
     				sb.append(", ");
     			}

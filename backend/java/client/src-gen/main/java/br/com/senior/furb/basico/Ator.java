@@ -104,6 +104,7 @@ public class Ator {
      * Nome do diretor
      */
     public String nome;
+    public Boolean ehRico = false;
     
     public Ator() {
     }
@@ -111,9 +112,10 @@ public class Ator {
     /** 
      * This constructor allows initialization of all fields, required and optional.
      */
-    public Ator(String id, String nome) {
+    public Ator(String id, String nome, Boolean ehRico) {
         this.id = id;
         this.nome = nome;
+        this.ehRico = ehRico != null ? ehRico : false;
     }
     /** 
      * This convenience constructor allows initialization of all required fields.
@@ -183,7 +185,8 @@ public class Ator {
     	}
     	appended.add(this);
     	sb.append("id=").append(id == null ? "null" : id).append(", ");
-    	sb.append("nome=").append(nome == null ? "null" : nome);
+    	sb.append("nome=").append(nome == null ? "null" : nome).append(", ");
+    	sb.append("ehRico=").append(ehRico == null ? "null" : ehRico);
     	sb.append(']');
     }
     

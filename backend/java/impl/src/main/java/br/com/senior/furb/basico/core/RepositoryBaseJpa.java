@@ -24,5 +24,5 @@ public class RepositoryBaseJpa {
     public <U> JPAQuery<U> from(EntityPath<U> entityPath) {
         return select(entityPath).from(entityPath);
     }
-
+    
 }

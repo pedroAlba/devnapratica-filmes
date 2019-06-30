@@ -1,0 +1,470 @@
+{
+	"version": "develop-SNAPSHOT",
+	"edlVersion": "13.3.2",
+	"app": "furb-basico",
+	"domain": "furb",
+	"service": "basico",
+	"enumType": "ordinal",
+	"enumerations": {
+	},
+	"entities": {
+		"genero": {
+			"id": "id",
+			"name": "genero",
+			"customizable": false,
+			"slots": {
+				"id": {
+					"name": "id",
+					"type": "string",
+					"format": "uuid",
+					"optional": true,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": true
+				},
+				"nome": {
+					"name": "nome",
+					"type": "string",
+					"optional": false,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false
+				}
+			},
+			"lookup": {
+				"searchFields": [
+					{
+						"name": "id",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "nome",
+						"optional": true,
+						"multiple": false
+					}
+				],
+				"displayFields": [
+					"id",
+					"nome"
+				]
+			},
+			"advancedSearch": {
+				"searchFields": [
+					{
+						"name": "id",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "nome",
+						"optional": true,
+						"multiple": false
+					}
+				],
+				"displayFields": [
+					"id",
+					"nome"
+				]
+			}
+		},
+		"diretor": {
+			"id": "id",
+			"name": "diretor",
+			"customizable": false,
+			"slots": {
+				"id": {
+					"name": "id",
+					"type": "string",
+					"format": "uuid",
+					"optional": true,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": true
+				},
+				"nome": {
+					"name": "nome",
+					"type": "string",
+					"optional": false,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false
+				}
+			},
+			"lookup": {
+				"searchFields": [
+					{
+						"name": "id",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "nome",
+						"optional": true,
+						"multiple": false
+					}
+				],
+				"displayFields": [
+					"id",
+					"nome"
+				]
+			},
+			"advancedSearch": {
+				"searchFields": [
+					{
+						"name": "id",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "nome",
+						"optional": true,
+						"multiple": false
+					}
+				],
+				"displayFields": [
+					"id",
+					"nome"
+				]
+			}
+		},
+		"ator": {
+			"id": "id",
+			"name": "ator",
+			"customizable": false,
+			"slots": {
+				"id": {
+					"name": "id",
+					"type": "string",
+					"format": "uuid",
+					"optional": true,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": true
+				},
+				"nome": {
+					"name": "nome",
+					"type": "string",
+					"optional": false,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false
+				},
+				"ehRico": {
+					"name": "ehRico",
+					"type": "boolean",
+					"optional": true,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false,
+					"default": false
+				}
+			},
+			"lookup": {
+				"searchFields": [
+					{
+						"name": "id",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "nome",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "ehRico",
+						"optional": true,
+						"multiple": false
+					}
+				],
+				"displayFields": [
+					"id",
+					"nome",
+					"ehRico"
+				]
+			},
+			"advancedSearch": {
+				"searchFields": [
+					{
+						"name": "id",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "nome",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "ehRico",
+						"optional": true,
+						"multiple": false
+					}
+				],
+				"displayFields": [
+					"id",
+					"nome",
+					"ehRico"
+				]
+			}
+		},
+		"filme": {
+			"id": "id",
+			"name": "filme",
+			"customizable": false,
+			"slots": {
+				"id": {
+					"name": "id",
+					"type": "string",
+					"format": "uuid",
+					"optional": true,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": true
+				},
+				"nome": {
+					"name": "nome",
+					"type": "string",
+					"optional": false,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false
+				},
+				"diretor": {
+					"name": "diretor",
+					"type": "diretor",
+					"optional": false,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false
+				},
+				"genero": {
+					"name": "genero",
+					"type": "genero",
+					"optional": false,
+					"hidden": false,
+					"multivalued": false,
+					"readOnly": false
+				},
+				"atores": {
+					"name": "atores",
+					"type": "ator",
+					"optional": false,
+					"hidden": false,
+					"multivalued": true,
+					"readOnly": false
+				}
+			},
+			"lookup": {
+				"searchFields": [
+					{
+						"name": "id",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "nome",
+						"optional": true,
+						"multiple": false
+					}
+				],
+				"displayFields": [
+					"id",
+					"nome"
+				]
+			},
+			"advancedSearch": {
+				"searchFields": [
+					{
+						"name": "id",
+						"optional": true,
+						"multiple": false
+					},
+					{
+						"name": "nome",
+						"optional": true,
+						"multiple": false
+					}
+				],
+				"displayFields": [
+					"id",
+					"nome"
+				]
+			},
+			"relationships": {
+				"ator": [
+					{
+						"type": "aggregation",
+						"attribute": "atores",
+						"ownerEntity": "filme",
+						"entityName": "ator",
+						"optional": false,
+						"filterDependent": false,
+						"multivalued": true,
+						"lookup": {
+							"searchFields": [
+								{
+									"name": "id",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "nome",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "ehRico",
+									"optional": true,
+									"multiple": false
+								}
+							],
+							"displayFields": [
+								"id",
+								"nome",
+								"ehRico"
+							]
+						},
+						"advancedSearch": {
+							"searchFields": [
+								{
+									"name": "id",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "nome",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "ehRico",
+									"optional": true,
+									"multiple": false
+								}
+							],
+							"displayFields": [
+								"id",
+								"nome",
+								"ehRico"
+							]
+						}
+					}
+				]
+				,"genero": [
+					{
+						"type": "aggregation",
+						"attribute": "genero",
+						"ownerEntity": "filme",
+						"entityName": "genero",
+						"optional": false,
+						"filterDependent": false,
+						"multivalued": false,
+						"lookup": {
+							"searchFields": [
+								{
+									"name": "id",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "nome",
+									"optional": true,
+									"multiple": false
+								}
+							],
+							"displayFields": [
+								"id",
+								"nome"
+							]
+						},
+						"advancedSearch": {
+							"searchFields": [
+								{
+									"name": "id",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "nome",
+									"optional": true,
+									"multiple": false
+								}
+							],
+							"displayFields": [
+								"id",
+								"nome"
+							]
+						}
+					}
+				]
+				,"diretor": [
+					{
+						"type": "aggregation",
+						"attribute": "diretor",
+						"ownerEntity": "filme",
+						"entityName": "diretor",
+						"optional": false,
+						"filterDependent": false,
+						"multivalued": false,
+						"lookup": {
+							"searchFields": [
+								{
+									"name": "id",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "nome",
+									"optional": true,
+									"multiple": false
+								}
+							],
+							"displayFields": [
+								"id",
+								"nome"
+							]
+						},
+						"advancedSearch": {
+							"searchFields": [
+								{
+									"name": "id",
+									"optional": true,
+									"multiple": false
+								},
+								{
+									"name": "nome",
+									"optional": true,
+									"multiple": false
+								}
+							],
+							"displayFields": [
+								"id",
+								"nome"
+							]
+						}
+					}
+				]
+			}
+		}
+	},
+	"translations": {
+		"furb.basico.genero": "Genero",
+		"furb.basico.genero_id": "Chave primaria",
+		"furb.basico.genero_nome": "nome",
+		"furb.basico.diretor": "Entidade que representa o diretor",
+		"furb.basico.diretor_id": "Chave primaria",
+		"furb.basico.diretor_nome": "Nome do diretor",
+		"furb.basico.ator": "Entidade que representa o ator",
+		"furb.basico.ator_id": "Chave primaria",
+		"furb.basico.ator_nome": "Nome do diretor",
+		"furb.basico.ator_eh_rico": "",
+		"furb.basico.filme": "Entidade que representa um filme",
+		"furb.basico.filme_id": "Chave primária",
+		"furb.basico.filme_nome": "nome",
+		"furb.basico.filme_diretor": "diretor",
+		"furb.basico.filme_genero": "genero",
+		"furb.basico.filme_atores": "atores"
+	}
+}

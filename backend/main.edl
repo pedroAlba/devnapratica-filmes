@@ -9,12 +9,12 @@ entities {
 service basico {
 	entities{
         entity filme{
-            relationships{
+            relationships{            	
             	OneToMany(atores){
                     type: aggregation
-                    fetchType: eager
+                    fetchType: eager                    
                 }
-                OneToMany(generos){
+                ManyToOne(genero){
                     type: aggregation
                     fetchType: eager
                 }
