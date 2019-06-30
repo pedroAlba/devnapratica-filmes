@@ -6,6 +6,10 @@ import { catchError, takeUntil } from 'rxjs/operators';
 import { throwError, Subject } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { Diretor } from 'src/app/core/entities/diretor/diretor';
+import { DiretorService } from 'src/app/core/entities/diretor/diretor.service';
+import { GeneroService } from 'src/app/core/entities/genero/genero.service';
+import { AtorService } from 'src/app/core/entities/ator/ator.service';
 
 @Component({
   selector: 'app-cliente-form',
@@ -18,8 +22,15 @@ export class FilmeFormComponent implements OnInit {
   private routeParams: any;
   private ngUnsubscribe = new Subject();
 
+  private diretores;
+  private generos;
+  private atores;
+
   constructor(
     private filmeService: FilmeService,
+    private diretorService: DiretorService,
+    private generoService: GeneroService,
+    private atorService: AtorService,
     private formBuilder: FormBuilder,
     private router: Router,
     private messageService: MessageService,
@@ -33,13 +44,25 @@ export class FilmeFormComponent implements OnInit {
     this.route.params.pipe(takeUntil(this.ngUnsubscribe)).subscribe((params: any) => this.onRouteParamsChange(params));
     this.route.data.pipe(takeUntil(this.ngUnsubscribe)).subscribe((data: any) => this.onRouteDataChange(data));
 
+    this.diretorService.list().subscribe(({ contents }) => {
+      this.diretores = contents
+    })
+
+    this.generoService.list().subscribe(({ contents }) => {
+      this.generos = contents
+    })
+
+    this.atorService.list().subscribe(({ contents}) => {
+      this.atores = contents
+    })
   }
 
   private getFormGroup() {
     return this.formBuilder.group({
       nome: new FormControl(undefined, Validators.compose([Validators.required])),
-      sobrenome: new FormControl(undefined, Validators.compose([Validators.required])),
-      dataLancamento: new FormControl(undefined, Validators.compose([Validators.required])),
+      diretor: new FormControl(undefined, Validators.compose([Validators.required])),
+      genero: new FormControl(undefined, Validators.compose([Validators.required])),
+      atores: new FormControl(undefined, Validators.compose([Validators.required])),
     });
   }
 

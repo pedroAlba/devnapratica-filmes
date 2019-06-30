@@ -15,7 +15,7 @@ import { DiretorFormComponent } from './views/diretor-form/diretor-form.componen
 import { DiretorListComponent } from './views/diretor-list/diretor-list.component';
 import { DiretorResolver } from './views/diretor-form/diretor.resolver';
 import { DiretorRouterModule } from './diretor.routing';
-
+import {DialogModule} from 'primeng/dialog';
 @NgModule({
   declarations: [DiretorFormComponent, DiretorListComponent],
   imports: [
@@ -30,7 +30,8 @@ import { DiretorRouterModule } from './diretor.routing';
     CalendarModule,
     RadioButtonModule,
     MessageModule,
-    ToastModule
+    ToastModule,
+    DialogModule
   ],
   providers: [
     MessageService,

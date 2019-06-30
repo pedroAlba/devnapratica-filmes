@@ -1,11 +1,13 @@
 import * as moment from 'moment';
 import { DiretorDto } from './diretor-dto';
+import { Filme } from '../filme/filme';
 
 export class Diretor {
   public id?: string;
   public nome?: string;
   public sobrenome?: string;
   public dataNascimento?: Date;
+  public filmes?: Filme[]
 
   public static fromDto(diretorDto: DiretorDto, originEntity?: string): Diretor {
     const model: any = { ...diretorDto };

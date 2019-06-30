@@ -15,23 +15,26 @@ export class AtorListComponent implements OnInit {
 
   items: Ator[];
   columns: any[];
+  filmes;
+  showDialog: boolean = false
+  selected;
 
   constructor(
-    private itemService: AtorService,
+    private atorService: AtorService,
     private messageService: MessageService,
     private router: Router,
     private route: ActivatedRoute
     ) { }
 
   ngOnInit() {
-    this.itemService.list()
+    this.atorService.list()
     .pipe(this.listErrorCatch())
     .subscribe(({ contents }) => {
       this.items = contents;
     });
 
     this.columns = this.getGridColumns();
-
+    
   }
 
   private getGridColumns() {
@@ -39,7 +42,7 @@ export class AtorListComponent implements OnInit {
       { field: 'id', header: 'Id' },
       { field: 'nome', header: 'Nome' },
       { field: 'ehRico', header: 'É rico' },
-      { field: '', header: 'Acoes' }
+      { field: '', header: 'Ações' }
     ];
 
     return gridcloumns;
@@ -55,6 +58,15 @@ export class AtorListComponent implements OnInit {
     });
   }
 
+  public showFilmes(item: Ator) {
+    this.selected = item;
+    this.atorService.retornaFilmesByAtor(item.nome).subscribe(({ filmes }) => {
+      this.filmes = filmes;
+      console.log(this.filmes)
+      this.showDialog = true
+    })
+  }
+
   public onAdd() {
     this.router.navigate(['/ator/create'], { relativeTo: this.route });
   }
@@ -66,7 +78,7 @@ export class AtorListComponent implements OnInit {
   public onRemoveConfirm(item: any) {
     const { id, nome } = item.data;
 
-    this.itemService.delete(id)
+    this.atorService.delete(id)
     .pipe(this.listErrorCatch(`Error`, `Erro ao deletar o item`))
     .subscribe(() => {
       this.messageService.clear('removeConfirm');

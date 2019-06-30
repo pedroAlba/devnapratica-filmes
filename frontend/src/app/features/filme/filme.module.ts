@@ -14,6 +14,8 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { MessageService } from 'primeng/api';
 import { MessageModule } from 'primeng/message';
 import { ToastModule } from 'primeng/toast';
+import {MultiSelectModule} from 'primeng/primeng';
+import {DropdownModule} from 'primeng/primeng'
 import { FilmeResolver } from './views/filme-form/filme.resolver';
 
 @NgModule({
@@ -30,7 +32,9 @@ import { FilmeResolver } from './views/filme-form/filme.resolver';
     CalendarModule,
     RadioButtonModule,
     MessageModule,
-    ToastModule
+    ToastModule,
+    MultiSelectModule,
+    DropdownModule
   ],
   providers: [
     MessageService,

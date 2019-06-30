@@ -15,6 +15,7 @@ import { ToastModule } from 'primeng/toast';
 import { AtorFormComponent } from './views/ator-form/ator-form.component';
 import { AtorListComponent } from './views/ator-list/ator-list.component';
 import { AtorResolver } from './views/ator-form/ator.resolver';
+import {DialogModule} from 'primeng/dialog';
 
 @NgModule({
   declarations: [AtorFormComponent, AtorListComponent],
@@ -30,7 +31,8 @@ import { AtorResolver } from './views/ator-form/ator.resolver';
     CalendarModule,
     RadioButtonModule,
     MessageModule,
-    ToastModule
+    ToastModule,
+    DialogModule
   ],
   providers: [
     MessageService,

@@ -24,7 +24,6 @@ import {
 import { CoreModule } from './core/core.module';
 import { MessageService } from 'primeng/components/common/messageservice';
 
-
 @NgModule({
   declarations: [
     AppComponent,

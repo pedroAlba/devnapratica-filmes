@@ -37,7 +37,11 @@ export class FilmeListComponent implements OnInit {
   private getGridColumns() {
     const gridcloumns = [
       { field: 'nome', header: 'Nome' },
-      { field: 'dataLancamento', header: 'Data de Lançamento' },
+      { field: 'diretor', header: 'Diretor' },
+      { field: 'genero', header: 'Genero' },
+      { field: 'ator', header: 'Atores' },
+      { field: '', header: 'Ações' },
+
     ];
 
     return gridcloumns;
@@ -79,6 +83,10 @@ export class FilmeListComponent implements OnInit {
 
   public onRemoveReject() {
     this.messageService.clear('removeConfirm');
+  }
+
+  public getAtores(atores) {
+    return atores.map(a => a.nome).join(" - ")
   }
 
   private listErrorCatch() {

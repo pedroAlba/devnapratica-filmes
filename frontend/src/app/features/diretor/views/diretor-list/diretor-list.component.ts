@@ -8,6 +8,7 @@ import { Ator } from 'src/app/core/entities/ator/ator';
 import { AtorService } from 'src/app/core/entities/ator/ator.service';
 import { Diretor } from 'src/app/core/entities/diretor/diretor';
 import { DiretorService } from 'src/app/core/entities/diretor/diretor.service';
+import { SelectableRowDblClick } from 'primeng/table';
 
 @Component({
   selector: 'app-cliente-list',
@@ -17,16 +18,19 @@ export class DiretorListComponent implements OnInit {
 
   items: Diretor[];
   columns: any[];
+  filmes;
+  showDialog: boolean = false
+  selected;
 
   constructor(
-    private itemService: DiretorService,
+    private diretorService: DiretorService,
     private messageService: MessageService,
     private router: Router,
     private route: ActivatedRoute
     ) { }
 
   ngOnInit() {
-    this.itemService.list()
+    this.diretorService.list()
     .pipe(this.listErrorCatch())
     .subscribe(({ contents }) => {
       this.items = contents;
@@ -40,7 +44,7 @@ export class DiretorListComponent implements OnInit {
     const gridcloumns = [
       { field: 'id', header: 'Id' },
       { field: 'nome', header: 'Nome' },
-      { field: '', header: 'Acoes' }
+      { field: '', header: 'Ações' }
     ];
 
     return gridcloumns;
@@ -60,15 +64,24 @@ export class DiretorListComponent implements OnInit {
     this.router.navigate(['/diretor/create'], { relativeTo: this.route });
   }
 
-  public editItem(item: Ator) {
+  public editItem(item: Diretor) {
     this.router.navigate([`/diretor/edit/${item.id}`], { relativeTo: this.route });
+  }
+
+  public showFilmes(item: Diretor) {
+    this.selected = item;
+    this.diretorService.retornaFilmesByDiretor(item.nome).subscribe(({ filmes }) => {
+      this.filmes = filmes;
+      console.log(this.filmes)
+      this.showDialog = true
+    })
   }
 
   public onRemoveConfirm(item: any) {
     const { id, nome } = item.data;
 
-    this.itemService.delete(id)
-    .pipe(this.listErrorCatch(`Error`, `Erro ao deletar o item`))
+    this.diretorService.delete(id)
+    .pipe(this.listErrorCatch(`Error`, `Erro ao deletar o diretor`))
     .subscribe(() => {
       this.messageService.clear('removeConfirm');
       this.items = this.items.filter(item => item.id !== id);

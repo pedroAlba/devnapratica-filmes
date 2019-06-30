@@ -56,8 +56,18 @@
                 <span class="ui-column-title"></span>
                 <p-button icon="pi pi-pencil" styleClass="ui-button-warning action-icon" (click)="editItem(item)"></p-button>
                 <p-button icon="pi pi-trash" styleClass="ui-button-danger action-icon" (click)="onRemove(item)"></p-button>
+                <p-button icon="pi pi-info" styleClass="ui-button-danger action-icon" (click)="showFilmes(item)"></p-button>
             </td>
           </tr>
+          <p-dialog [(visible)]="showDialog">
+              <h3> Filmes do ator {{selected?.nome}} </h3>
+              <p></p>
+              <ul>
+                  <li *ngFor="let item of filmes">
+                    {{item.nome}}
+                  </li>
+              </ul>
+          </p-dialog>
         </ng-template>
         <ng-template pTemplate="summary" *ngIf="items?.length !== 0">
           Total {{item?.length}} Items

@@ -1,4 +1,4 @@
-/* Database: SqlServer. Generation date: 2019-06-30 02:52:49:091 */
+/* Database: SqlServer. Generation date: 2019-06-30 10:58:57:845 */
 /* Entity Genero */
 create table genero (
 	id UNIQUEIDENTIFIER NOT NULL,
@@ -49,10 +49,10 @@ alter table filme_atores add constraint pk_filme_atores primary key(filme_id, at
 alter table filme add constraint pk_filme_id primary key(id);
 
 /* Foreign Key Constraints */
-alter table filme add constraint fkbkbuw3mbdjkqkwcn2f8muqborvff foreign key (diretor) references diretor (id);
-alter table filme add constraint fkpv4z62jc5nqfjwfqlsvce7beq9x2 foreign key (genero) references genero (id);
-alter table filme_atores add constraint fkyrpxnrnuknlwpue8exuao4qsupe5 foreign key (filme_id) references filme (id);
-alter table filme_atores add constraint fkkxc0rawxkioktzyopunhucf7d2yv foreign key (atores_id) references ator (id);
+alter table filme add constraint fkmy6bzhit058tahcvratkxqxg9zas foreign key (diretor) references diretor (id);
+alter table filme add constraint fkduqqvymbuphno3ymsqmfaae7lqwl foreign key (genero) references genero (id);
+alter table filme_atores add constraint fk2afvv1ohj8spfog9todh0wigvc6u foreign key (filme_id) references filme (id);
+alter table filme_atores add constraint fknzsb7eac4zs8nfarao39wl3fmzee foreign key (atores_id) references ator (id);
 
 /* Unique Key Constraints */
 

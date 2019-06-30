@@ -42,7 +42,7 @@ export class GeneroListComponent implements OnInit {
     const gridcloumns = [
       { field: 'id', header: 'Id' },
       { field: 'nome', header: 'Nome' },
-      { field: '', header: 'Acoes' }
+      { field: '', header: 'Ações' }
     ];
 
     return gridcloumns;

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { MessageService } from 'primeng/components/common/messageservice';
 import { AtorDto } from './ator-dto';
 import { EntityService } from '../entity-service';
+import { FilmeDto } from '../filme/filme-dto';
 
 
 @Injectable()
@@ -14,4 +15,8 @@ export class AtorService extends EntityService<AtorDto> {
             `https://platform-homologx.senior.com.br/t/senior.com.br/bridge/1.0/rest/furb/basico/entities/ator`
         );
     }
+
+    public retornaFilmesByAtor(nomeAtor) {    
+        return this.http.post<FilmeDto[]>('https://platform-homologx.senior.com.br/t/senior.com.br/bridge/1.0/rest/furb/basico/queries/retornaFilmesByAtor', {ator: nomeAtor}, { headers: this.headers }).pipe(this.defaultCatch());
+      }
 }

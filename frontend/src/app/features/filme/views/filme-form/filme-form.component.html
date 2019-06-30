@@ -12,20 +12,34 @@
         <div class="ui-g-12 ui-md-12 ui-lg-12">
           <label class="required" for="itemName">Nome do Filme:</label>
           <div class="ui-inputgroup">
-            <input #nomeFormInput type="text" id="nome" name="nome" pInputText formControlName="nome" autocomplete="off" placeholder="Ex: Fulano de tal"/>
+            <input #nomeFormInput type="text" id="nome" name="nome" pInputText formControlName="nome" autocomplete="off"/>
           </div>
         </div>
 
-        <div class="ui-g-12 ui-md-6 ui-lg-4">
-          <label for="itemName">Data de lançamento</label>
-          <i *ngIf="outOfDate" pTooltip="Produto Vencido!" tooltipPosition="top" class="pi pi-calendar-times outOfDate"></i>
-          <div class="ui-inputgroup">
-            <p-calendar formControlName="dataNascimento" dateFormat="dd/mm/yy"></p-calendar>
-          </div>
+        <div class="ui-g-12 ui-md-12 ui-lg-12">
+            <label class="required" for="itemName">Diretor:</label>
+            <div class="ui-inputgroup">
+              <p-dropdown [options]="diretores" formControlName="diretor" placeholder="Selecione um diretor" optionLabel="nome" [showClear]="true"></p-dropdown>
+            </div>
         </div>
 
+        <div class="ui-g-12 ui-md-12 ui-lg-12">
+            <label class="required" for="itemName">Genero:</label>
+            <div class="ui-inputgroup">
+              <p-dropdown [options]="generos" formControlName="genero" placeholder="Selecione um genero" optionLabel="nome" [showClear]="true"></p-dropdown>
+            </div>
+        </div>
+
+        <div class="ui-g-12 ui-md-12 ui-lg-12">
+            <label class="required" for="itemName">Atores:</label>
+          <div id="statusdrpdown" #statusdropdown>
+              <p-multiSelect [options]="atores" formControlName="atores" placeholder="Selecione atores" class="multiselectcss" [filter]="false"  optionLabel="nome"></p-multiSelect>
+          </div>
+
+        </div>
+        <!--
         <div class="ui-g-12 ui-md-6 ui-lg-4">
-          <label class="required" for="itemName">Credito habilitado:</label>
+          <label class="required" for="itemName">Genero:</label>
           <div class="ui-inputgroup">
             <div class="radio-align">
               <div class="ui-g-12">
@@ -45,7 +59,7 @@
             <input #cpfFormInput type="text" id="cpf" name="cpf" pInputText formControlName="cpf" autocomplete="off" placeholder="Ex: 012.227.992-19"/>
           </div>
         </div>
-
+-->
       </div>
       <p-footer>
         <div class="group-button">
