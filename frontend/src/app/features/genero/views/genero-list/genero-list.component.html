@@ -53,7 +53,7 @@
                 <p-button icon="pi pi-pencil" styleClass="ui-button-warning action-icon" (click)="editItem(item)"></p-button>
                 <p-button icon="pi pi-trash" styleClass="ui-button-danger action-icon" (click)="onRemove(item)"></p-button>
                 <p-button icon="pi pi-info" styleClass="ui-button-danger action-icon" (click)="showFilmes(item)"></p-button>
-                <!-- ADICIONAR BOTAO E FAMOSO-->
+                <p-button icon="pi pi-heartbeat" styleClass="ui-button-danger action-icon" (click)="atualizarPopularidade(item)"></p-button>
             </td>
           </tr>
           <p-dialog [(visible)]="showDialog">
@@ -65,6 +65,10 @@
                   </li>
               </ul>
           </p-dialog>
+          <p-dialog [(visible)]="showPopularDialog">
+            <h3 *ngIf="ehPopular"> O genero {{selected?.nome}} é popular, pois cadastrado em mais de 3 filmes.</h3>
+            <h3 *ngIf="!ehPopular"> O genero {{selected?.nome}} não é popular, pois não está cadastrado em mais de 3 filmes</h3>
+        </p-dialog>
         </ng-template>
         <ng-template pTemplate="summary" *ngIf="items?.length !== 0">
           Total {{item?.length}} Items

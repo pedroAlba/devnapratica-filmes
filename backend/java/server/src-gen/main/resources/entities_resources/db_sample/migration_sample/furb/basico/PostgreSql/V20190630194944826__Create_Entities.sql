@@ -1,4 +1,4 @@
-/* Database: PostgreSql. Generation date: 2019-06-30 18:38:09:452 */
+/* Database: PostgreSql. Generation date: 2019-06-30 19:49:44:826 */
 /* Entity Genero */
 create table genero (
 	id UUID NOT NULL,
@@ -49,10 +49,10 @@ alter table filme_atores add constraint pk_filme_atores primary key(filme_id, at
 alter table filme add constraint pk_filme_id primary key(id);
 
 /* Foreign Key Constraints */
-alter table filme add constraint fk5grvliuid8pffa7zdlckdjfeskxf foreign key (diretor) references diretor (id);
-alter table filme add constraint fkkux3dfuukvofehphdlfalcfqa78a foreign key (genero) references genero (id);
-alter table filme_atores add constraint fk9bo6ofhtmrknbobxcudusl6s0d13 foreign key (filme_id) references filme (id);
-alter table filme_atores add constraint fkl7pclxgtoh2tlsnv39rle4nawajx foreign key (atores_id) references ator (id);
+alter table filme add constraint fkosig9qsiafczczs90ifkj2lpu5rn foreign key (diretor) references diretor (id);
+alter table filme add constraint fkc0bstlycr6u7hqtqpssjoyw3joqr foreign key (genero) references genero (id);
+alter table filme_atores add constraint fkix0znzx1qytgqejbpjdno5wvn4ce foreign key (filme_id) references filme (id);
+alter table filme_atores add constraint fkovupxec0vnlwuj4nxftfr6ofyecu foreign key (atores_id) references ator (id);
 
 /* Unique Key Constraints */
 

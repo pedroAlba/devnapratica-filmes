@@ -20,4 +20,8 @@ export class DiretorService extends EntityService<DiretorDto> {
   public retornaFilmesByDiretor(nomeDiretor) {    
     return this.http.post<FilmeDto[]>('https://platform-homologx.senior.com.br/t/senior.com.br/bridge/1.0/rest/furb/basico/queries/retornaFilmesByDiretor', {diretor: nomeDiretor}, { headers: this.headers }).pipe(this.defaultCatch());
   }
+
+  public atualizaStatusDiretor(nomeDiretor) {
+    return this.http.post('https://platform-homologx.senior.com.br/t/senior.com.br/bridge/1.0/rest/furb/basico/actions/diretorEhExperiente', {diretor: nomeDiretor}, { headers: this.headers }).pipe(this.defaultCatch());
+}
 }

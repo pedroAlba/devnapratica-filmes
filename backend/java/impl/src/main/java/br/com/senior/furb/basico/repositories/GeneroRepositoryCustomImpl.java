@@ -57,6 +57,6 @@ public class GeneroRepositoryCustomImpl extends RepositoryBaseJpa implements Gen
 		long filmesQueDirige = select(qFilme).from(qFilme)
 												 .where(qFilme.genero.nome.eq(genero))
 												 .fetchCount();
-		return filmesQueDirige > 5;
+		return filmesQueDirige > 3;
 	}
 }

@@ -53,6 +53,7 @@
                 <p-button icon="pi pi-pencil" styleClass="ui-button-warning action-icon" (click)="editItem(item)"></p-button>
                 <p-button icon="pi pi-trash" styleClass="ui-button-danger action-icon" (click)="onRemove(item)"></p-button>
                 <p-button icon="pi pi-info" styleClass="ui-button-danger action-icon" (click)="showFilmes(item)"></p-button>
+                <p-button icon="pi pi-trophy" styleClass="ui-button-danger action-icon" (click)="atualizarExperiencia(item)"></p-button>
             </td>
           </tr>
           <p-dialog [(visible)]="showDialog">
@@ -63,6 +64,10 @@
                   <li>
               </ul>
           </p-dialog>
+          <p-dialog [(visible)]="showExperienteDialog">
+            <h3 *ngIf="ehExperiente"> O diretor {{selected?.nome}} é experiente, pois dirigiu mais de 3 filmes.</h3>
+            <h3 *ngIf="!ehExperiente"> O diretor {{selected?.nome}} não é experiente, pois não dirigiu mais de 3 filmes</h3>
+        </p-dialog>
         </ng-template>
         <ng-template pTemplate="summary" *ngIf="items?.length !== 0">
           Total {{item?.length}} Items

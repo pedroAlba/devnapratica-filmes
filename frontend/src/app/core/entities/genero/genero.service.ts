@@ -18,4 +18,8 @@ export class GeneroService extends EntityService<GeneroDto> {
   public retornaFilmesByGenero(nomeGenero) {    
     return this.http.post<FilmeDto[]>('https://platform-homologx.senior.com.br/t/senior.com.br/bridge/1.0/rest/furb/basico/queries/retornaFilmesByGenero', {genero: nomeGenero}, { headers: this.headers }).pipe(this.defaultCatch());
   }
+
+  public atualizaStatusGenero(nomeGenero) {
+    return this.http.post('https://platform-homologx.senior.com.br/t/senior.com.br/bridge/1.0/rest/furb/basico/actions/generoEhFamoso', {genero: nomeGenero}, { headers: this.headers }).pipe(this.defaultCatch());
+}
 }

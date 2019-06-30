@@ -20,6 +20,8 @@ export class DiretorListComponent implements OnInit {
   columns: any[];
   filmes;
   showDialog: boolean = false
+  showExperienteDialog: boolean = false
+  ehExperiente: boolean = false
   selected;
 
   constructor(
@@ -74,6 +76,14 @@ export class DiretorListComponent implements OnInit {
       this.filmes = filmes;
       console.log(this.filmes)
       this.showDialog = true
+    })
+  }
+
+  atualizarExperiencia(item: Diretor) {
+    this.diretorService.atualizaStatusDiretor(item.nome).subscribe(( { ehExperiente }) => {
+      this.selected = item.nome
+      this.ehExperiente = ehExperiente
+      this.showExperienteDialog = true
     })
   }
 

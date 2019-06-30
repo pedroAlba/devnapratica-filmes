@@ -21,6 +21,8 @@ export class GeneroListComponent implements OnInit {
   columns: any[];
   filmes;
   showDialog: boolean = false
+  showPopularDialog: boolean = false
+  ehPopular: boolean = false
   selected;
 
   constructor(
@@ -50,13 +52,21 @@ export class GeneroListComponent implements OnInit {
 
     return gridcloumns;
   }
-  //algo parecido com isso, ai tem que criar o metodo da actio la no repository
+  
   public showFilmes(item: Diretor) {
     this.selected = item;
     this.generoService.retornaFilmesByGenero(item.nome).subscribe(({ filmes }) => {
       this.filmes = filmes;
       console.log(this.filmes)
       this.showDialog = true
+    })
+  }
+
+  atualizarPopularidade(item: Genero) {
+    this.generoService.atualizaStatusGenero(item.nome).subscribe(( { ehPopular }) => {
+      this.selected = item.nome
+      this.ehPopular = ehPopular
+      this.showPopularDialog = true
     })
   }
   

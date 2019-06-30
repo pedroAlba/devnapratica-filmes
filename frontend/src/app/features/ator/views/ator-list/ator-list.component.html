@@ -66,8 +66,8 @@
               </ul>
           </p-dialog>
           <p-dialog [(visible)]="showRicoDialog">
-              <h3 *ngIf="ehRico"> O ator {{selected?.nome}} é rico, pois está em mais de 2 filmes.</h3>
-              <h3 *ngIf="!ehRico"> O ator {{selected?.nome}} não é rico, pois não está em mais de 2 filmes</h3>
+              <h3 *ngIf="ehRico"> O ator {{selected?.nome}} é rico, pois atuou em mais de 2 filmes.</h3>
+              <h3 *ngIf="!ehRico"> O ator {{selected?.nome}} não é rico, pois não atuou em mais de 2 filmes</h3>
           </p-dialog>
         </ng-template>
       </p-table>

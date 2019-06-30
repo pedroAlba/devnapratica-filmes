@@ -63,6 +63,6 @@ public class DiretorRepositoryCustomImpl extends RepositoryBaseJpa implements Di
 												 .fetchCount();
 
 		
-		return filmesQueDirige > 5;
+		return filmesQueDirige > 3;
 	}
 }
