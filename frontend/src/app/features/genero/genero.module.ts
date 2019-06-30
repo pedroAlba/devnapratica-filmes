@@ -16,6 +16,7 @@ import { GeneroFormComponent } from './views/genero-form/genero-form.component';
 import { DiretorFormComponent } from '../diretor/views/diretor-form/diretor-form.component';
 import { GeneroResolver } from './views/genero-form/genero.resolver';
 import { GeneroListComponent } from './views/genero-list/genero-list.component';
+import {DialogModule} from 'primeng/dialog';
 
 @NgModule({
   declarations: [GeneroFormComponent, GeneroListComponent],
@@ -31,7 +32,8 @@ import { GeneroListComponent } from './views/genero-list/genero-list.component';
     CalendarModule,
     RadioButtonModule,
     MessageModule,
-    ToastModule
+    ToastModule,
+    DialogModule
   ],
   providers: [
     MessageService,

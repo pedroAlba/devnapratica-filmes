@@ -19,16 +19,19 @@ export class GeneroListComponent implements OnInit {
 
   items: Genero[];
   columns: any[];
+  filmes;
+  showDialog: boolean = false
+  selected;
 
   constructor(
-    private itemService: GeneroService,
+    private generoService: GeneroService,
     private messageService: MessageService,
     private router: Router,
     private route: ActivatedRoute
     ) { }
 
   ngOnInit() {
-    this.itemService.list()
+    this.generoService.list()
     .pipe(this.listErrorCatch())
     .subscribe(({ contents }) => {
       this.items = contents;
@@ -48,6 +51,15 @@ export class GeneroListComponent implements OnInit {
     return gridcloumns;
   }
 
+  public showFilmes(item: Diretor) {
+    this.selected = item;
+    this.generoService.retornaFilmesByGenero(item.nome).subscribe(({ filmes }) => {
+      this.filmes = filmes;
+      console.log(this.filmes)
+      this.showDialog = true
+    })
+  }
+  
   public onRemove(item: Ator) {
     this.messageService.add({
       key: 'removeConfirm',
@@ -69,7 +81,7 @@ export class GeneroListComponent implements OnInit {
   public onRemoveConfirm(item: any) {
     const { id, nome } = item.data;
 
-    this.itemService.delete(id)
+    this.generoService.delete(id)
     .pipe(this.listErrorCatch(`Error`, `Erro ao deletar o item`))
     .subscribe(() => {
       this.messageService.clear('removeConfirm');

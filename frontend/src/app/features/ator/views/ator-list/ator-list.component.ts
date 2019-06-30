@@ -17,7 +17,9 @@ export class AtorListComponent implements OnInit {
   columns: any[];
   filmes;
   showDialog: boolean = false
+  showRicoDialog: boolean = false
   selected;
+  ehRico: Boolean = false
 
   constructor(
     private atorService: AtorService,
@@ -41,7 +43,6 @@ export class AtorListComponent implements OnInit {
     const gridcloumns = [
       { field: 'id', header: 'Id' },
       { field: 'nome', header: 'Nome' },
-      { field: 'ehRico', header: 'É rico' },
       { field: '', header: 'Ações' }
     ];
 
@@ -75,6 +76,13 @@ export class AtorListComponent implements OnInit {
     this.router.navigate([`/ator/edit/${item.id}`], { relativeTo: this.route });
   }
 
+  atualizarRiqueza(item: Ator) {
+    this.atorService.atualizaStatusAtor(item.nome).subscribe(( {ehRico }) => {
+      this.selected = item.nome
+      this.ehRico = ehRico
+      this.showRicoDialog = true
+    })
+  }
   public onRemoveConfirm(item: any) {
     const { id, nome } = item.data;
 

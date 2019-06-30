@@ -76,11 +76,9 @@ public class AtorRepositoryCustomImpl extends RepositoryBaseJpa implements AtorR
 		long filmesQueParticipa = select(qFilme).from(qFilme)
 												 .where(qFilme.atores.contains(atorE))
 												 .fetchCount();
-		
-		if(filmesQueParticipa >= 3) {
-			atorE.setEhRico(true);
-			atorE = atorRepository.save(atorE);
-		}
+
+		atorE.setEhRico(filmesQueParticipa >= 3);
+		atorE = atorRepository.save(atorE);
 		
 		return atorE.getEhRico();
 	}

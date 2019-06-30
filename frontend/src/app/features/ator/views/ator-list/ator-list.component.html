@@ -49,14 +49,11 @@
               {{item.nome}}
             </td>
             <td>
-              <span class="ui-column-title">Credito Habilitado:</span>
-              {{item.ehRico}}
-            </td>
-            <td>
                 <span class="ui-column-title"></span>
                 <p-button icon="pi pi-pencil" styleClass="ui-button-warning action-icon" (click)="editItem(item)"></p-button>
                 <p-button icon="pi pi-trash" styleClass="ui-button-danger action-icon" (click)="onRemove(item)"></p-button>
                 <p-button icon="pi pi-info" styleClass="ui-button-danger action-icon" (click)="showFilmes(item)"></p-button>
+                <p-button icon="pi pi-dollar" styleClass="ui-button-danger action-icon" (click)="atualizarRiqueza(item)"></p-button>
             </td>
           </tr>
           <p-dialog [(visible)]="showDialog">
@@ -68,9 +65,10 @@
                   </li>
               </ul>
           </p-dialog>
-        </ng-template>
-        <ng-template pTemplate="summary" *ngIf="items?.length !== 0">
-          Total {{item?.length}} Items
+          <p-dialog [(visible)]="showRicoDialog">
+              <h3 *ngIf="ehRico"> O ator {{selected?.nome}} é rico, pois está em mais de 2 filmes.</h3>
+              <h3 *ngIf="!ehRico"> O ator {{selected?.nome}} não é rico, pois não está em mais de 2 filmes</h3>
+          </p-dialog>
         </ng-template>
       </p-table>
     </p-card>

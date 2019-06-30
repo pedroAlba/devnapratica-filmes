@@ -18,5 +18,10 @@ export class AtorService extends EntityService<AtorDto> {
 
     public retornaFilmesByAtor(nomeAtor) {    
         return this.http.post<FilmeDto[]>('https://platform-homologx.senior.com.br/t/senior.com.br/bridge/1.0/rest/furb/basico/queries/retornaFilmesByAtor', {ator: nomeAtor}, { headers: this.headers }).pipe(this.defaultCatch());
-      }
+    }
+
+    public atualizaStatusAtor(nomeAtor) {
+        return this.http.post('https://platform-homologx.senior.com.br/t/senior.com.br/bridge/1.0/rest/furb/basico/actions/atualizaStatusAtor', {ator: nomeAtor}, { headers: this.headers }).pipe(this.defaultCatch());
+    }
+
 }
