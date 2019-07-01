@@ -63,9 +63,9 @@ export class GeneroListComponent implements OnInit {
   }
 
   atualizarPopularidade(item: Genero) {
-    this.generoService.atualizaStatusGenero(item.nome).subscribe(( { ehPopular }) => {
+    this.generoService.atualizaStatusGenero(item.nome).subscribe(( { ehFamoso }) => {
       this.selected = item.nome
-      this.ehPopular = ehPopular
+      this.ehPopular = ehFamoso
       this.showPopularDialog = true
     })
   }

@@ -84,7 +84,7 @@ export class DiretorFormComponent implements OnInit {
   public onRouteDataChange(data: any) {
     const entity = data[0];
     if (data[0]) {
-        const value: any = Filme.fromDto(entity);
+        const value: any = Diretor.fromDto(entity);
         this.atorForm.patchValue(value);
     } else {
         this.atorForm.patchValue(new Diretor());
@@ -97,7 +97,7 @@ export class DiretorFormComponent implements OnInit {
 
   private getSaveObservable() {
     const { value } = this.atorForm;
-    const diretorDto = Filme.toDto(value);
+    const diretorDto = Diretor.toDto(value);
 
     let observable;
 
